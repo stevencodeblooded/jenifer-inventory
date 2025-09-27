@@ -5,7 +5,7 @@ const Customer = require("../models/Customer");
 const Settings = require("../models/Settings");
 const ActivityLog = require("../models/ActivityLog");
 const { asyncHandler, AppError } = require("../middleware/errorHandler");
-const { activityLogger } = require("../middleware/logger");
+// const { activityLogger } = require("../middleware/logger");
 
 // @desc    Create new order
 // @route   POST /api/orders
@@ -130,7 +130,7 @@ const createOrder = asyncHandler(async (req, res, next) => {
     },
   });
 
-  activityLogger.logOrder(order, req.user);
+  // activityLogger.logOrder(order, req.user);
 
   res.status(201).json({
     success: true,

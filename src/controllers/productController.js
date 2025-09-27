@@ -3,7 +3,7 @@ const Product = require("../models/Product");
 const Category = require("../models/Category");
 const ActivityLog = require("../models/ActivityLog");
 const { asyncHandler, AppError } = require("../middleware/errorHandler");
-const { activityLogger } = require("../middleware/logger");
+// const { activityLogger } = require("../middleware/logger");
 
 // @desc    Get all products
 // @route   GET /api/products
@@ -139,14 +139,14 @@ const createProduct = asyncHandler(async (req, res, next) => {
     },
   });
 
-  activityLogger.logInventoryChange(
-    product,
-    {
-      type: "create",
-      quantity: product.inventory.currentStock,
-    },
-    req.user
-  );
+  // activityLogger.logInventoryChange(
+  //   product,
+  //   {
+  //     type: "create",
+  //     quantity: product.inventory.currentStock,
+  //   },
+  //   req.user
+  // );
 
   res.status(201).json({
     success: true,
@@ -252,7 +252,7 @@ const updateStock = asyncHandler(async (req, res, next) => {
       },
     });
 
-    activityLogger.logInventoryChange(product, { type, quantity }, req.user);
+    // activityLogger.logInventoryChange(product, { type, quantity }, req.user);
 
     res.json({
       success: true,

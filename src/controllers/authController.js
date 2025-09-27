@@ -2,7 +2,7 @@
 const User = require("../models/User");
 const ActivityLog = require("../models/ActivityLog");
 const { asyncHandler, AppError } = require("../middleware/errorHandler");
-const { activityLogger } = require("../middleware/logger");
+// const { activityLogger } = require("../middleware/logger");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 
@@ -84,7 +84,7 @@ const login = asyncHandler(async (req, res, next) => {
 
     // Record successful login
     await user.recordLogin(req.ip, req.get("user-agent"), true);
-    activityLogger.logLogin(user, req.ip, true);
+    // activityLogger.logLogin(user, req.ip, true);
 
     // Log activity
     await ActivityLog.log({
@@ -116,7 +116,7 @@ const login = asyncHandler(async (req, res, next) => {
       const user = await User.findOne({ email });
       if (user) {
         await user.recordLogin(req.ip, req.get("user-agent"), false);
-        activityLogger.logLogin(user, req.ip, false);
+        // activityLogger.logLogin(user, req.ip, false);
       }
     }
 

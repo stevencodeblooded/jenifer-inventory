@@ -6,7 +6,7 @@ const Customer = require("../models/Customer");
 const User = require("../models/User");
 const ActivityLog = require("../models/ActivityLog");
 const { asyncHandler, AppError } = require("../middleware/errorHandler");
-const { taskLogger } = require("../middleware/logger");
+// const { taskLogger } = require("../middleware/logger");
 
 // @desc    Get sales report
 // @route   GET /api/reports/sales

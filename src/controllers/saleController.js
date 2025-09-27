@@ -4,7 +4,7 @@ const Product = require("../models/Product");
 const Customer = require("../models/Customer");
 const ActivityLog = require("../models/ActivityLog");
 const { asyncHandler, AppError } = require("../middleware/errorHandler");
-const { activityLogger } = require("../middleware/logger");
+// const { activityLogger } = require("../middleware/logger");
 const mpesaService = require("../services/mpesaService");
 const MpesaTransaction = require("../models/MpesaTransaction");
 
@@ -411,7 +411,7 @@ const createSale = asyncHandler(async (req, res, next) => {
     },
   });
 
-  activityLogger.logSale(sale, req.user);
+  // activityLogger.logSale(sale, req.user);
 
   res.status(201).json({
     success: true,
